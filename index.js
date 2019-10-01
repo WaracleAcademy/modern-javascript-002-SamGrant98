@@ -1,4 +1,5 @@
+import {render} from "/renderer";
+
 const things = ["Kraken Dark Rum", "OVD Rum", "Absolute Vodka", "Absolute Lime Vodka"];
   
-const MainView = document.queryselector(`primaryview`);
-MainView.innerHTML = '<h2>'
+render('<h2> text </h2>');
