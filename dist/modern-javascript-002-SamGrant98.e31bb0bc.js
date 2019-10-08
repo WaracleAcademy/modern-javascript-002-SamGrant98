@@ -129,14 +129,40 @@ function render(htmlContent) {
   var MainView = document.querySelector("#primaryView");
   MainView.innerHTML = htmlContent;
 }
+},{}],"data.json":[function(require,module,exports) {
+module.exports = {
+  "Spirits": [{
+    "Type": "Rum",
+    "Name": "Kraken",
+    "percentage": "40",
+    "Rating": "10/10"
+  }, {
+    "Type": "Vodka",
+    "Name": "Absolut",
+    "percentage": "40",
+    "Rating": "6/10"
+  }, {
+    "Type": "Gin",
+    "Name": "Flagingo",
+    "percentage": "30",
+    "Rating": "5/10"
+  }]
+};
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _renderer = require("./renderer");
 
+var Data = _interopRequireWildcard(require("./data.json"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 var things = ["Kraken Dark Rum", "OVD Rum", "Absolute Vodka", "Absolute Lime Vodka"];
-(0, _renderer.render)('working');
-},{"./renderer":"renderer.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _renderer.render)("working");
+Data();
+},{"./renderer":"renderer.js","./data.json":"data.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -164,7 +190,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51342" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52711" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
