@@ -32,3 +32,4 @@ for(let i=0; i < things.length; i++)
 }
 content += `</ul>`
 render(content);
+console.log("Branch");
