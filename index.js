@@ -1,13 +1,34 @@
 import {render} from "./renderer";
-import * as Data from "./data.json";
+import * as data from "./data.json";
 
-const things = ["Kraken Dark Rum", "OVD Rum", "Absolute Vodka", "Absolute Lime Vodka"];
+function getThingTemplate(things)
+{
+    return `<li>${things.Name} - ${things.Type}</li>`;
+}
+
+function sortMyStuff(first, second)
+{
+    if(parseInt(first.Rating) < parseInt(second.Rating))
+    {
+        return -1;
+    }
+    if(parseInt(first.Rating) > parseInt(second.Rating))
+    {
+        return 1;
+    }
+    if(parseInt(first.Rating) == parseInt(second.Rating))
+    {
+        return 0;
+    }
+}
+
+const things = data.Spirits.sort(sortMyStuff);
 let content = "";
 
-render(content);
-
-for(let i=0; 1 < things.length; i++)
+for(let i=0; i < things.length; i++)
 {
     console.log(things[i]);
-    content += things[i].name;
+    content += getThingTemplate(things[i]);
 }
+content += `</ul>`
+render(content);
